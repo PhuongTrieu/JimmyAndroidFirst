@@ -1,0 +1,84 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    android:id="@+id/homingPigeon"
+    android:baselineAligned="false"
+    android:background="@drawable/ic_background">
+
+    <ImageView
+        android:layout_width="169dp"
+        android:layout_height="195dp"
+        android:id="@+id/birdWhiteImg"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/birdwhite"
+        android:layout_marginTop="10dp" />
+
+
+    <ImageView
+        android:layout_width="166dp"
+        android:layout_height="153dp"
+        android:id="@+id/textLogo"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/framgiachart"/>
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:inputType="textEmailAddress"
+        android:id="@+id/inputEmailText"
+        android:layout_gravity="center_horizontal"
+        android:hint="ID"
+        android:linksClickable="false"
+        android:textColor="@color/input_text_color"
+        android:focusable="true"
+        android:text="cand_email_1@noserver.com"
+        android:background="@drawable/edittext_style"
+        android:enabled="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:textColorHint="@color/input_text_color" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:inputType="textPassword"
+        android:id="@+id/inputPassword"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:hint="Password"
+        android:textColor="@color/input_text_color"
+        android:background="@drawable/edittext_style"
+        android:text="12345678"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:textColorHint="@color/input_text_color" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:id="@+id/btnLogin"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:enabled="true"
+        android:background="@drawable/button_login"
+        android:focusable="false"
+        android:clickable="true"
+        android:textColor="@color/border_color_login_btn"
+        android:text="@string/login_btn_text"
+        android:textSize="14dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Copyright Framgia.Inc"
+        android:id="@+id/framgiaTitle"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        android:textSize="12dp"
+        android:textColor="#FFF" />
+
+</LinearLayout>

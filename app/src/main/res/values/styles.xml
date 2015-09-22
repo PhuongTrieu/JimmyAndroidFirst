@@ -1,0 +1,5 @@
+<resources>
+    <color name="border_color_login_btn">#f57b00</color>
+    <color name="input_text_color">#ffb74d</color>
+    <color name="subcribe_relative_color">#1e87e4</color>
+</resources>

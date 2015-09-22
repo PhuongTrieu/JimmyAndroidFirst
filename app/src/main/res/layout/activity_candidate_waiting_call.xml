@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/waitingLayout"
+    android:background="@drawable/background2"
+    android:clickable="true"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="222dp"
+        android:layout_height="259dp"
+        android:id="@+id/birdCall"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/birdblue"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="14dp"
+        android:layout_height="60dp"
+        android:id="@+id/signalCall"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="85dp"
+        android:id="@+id/btnCall"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/telblue"
+        android:clickable="false" />
+
+</LinearLayout>
