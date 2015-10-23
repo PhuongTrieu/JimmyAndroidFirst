@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
@@ -34,11 +35,12 @@ public class CandidateWaitCallActivity extends BaseActivity {
     private ImageView birdCall;
     private ImageView signalCall;
     private LinearLayout linearLayout;
-
+    private boolean sginalVisiable = false;
     private SocketIO socket;
     private Candidate candidate;
     private String cid;
     private String aid;
+    private Handler myHandler;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,21 @@ public class CandidateWaitCallActivity extends BaseActivity {
         setupVariables();
         ChatFunction();
         clickBtnEvents();
+        myHandler = new Handler(Looper.getMainLooper()) {
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case 0:
+                        signalCall.setVisibility(View.VISIBLE);
+                        callBack();
+                        break;
+                    case 1:
+                        signalCall.setVisibility(View.INVISIBLE);
+                        callBack();
+                        break;
+                }
+            }
+        };
     }
 
     private void ChatFunction() {
@@ -128,7 +145,7 @@ public class CandidateWaitCallActivity extends BaseActivity {
         birdCall.setImageResource(R.drawable.birdorange);
         linearLayout.setBackgroundResource(R.drawable.ic_background);
         signalCall.setImageResource(R.drawable.menu);
-        signalCall.setVisibility(View.VISIBLE);
+        callBack();
     }
 
     private void changeElementsBackgroundWhenEndCall() {
@@ -186,7 +203,7 @@ public class CandidateWaitCallActivity extends BaseActivity {
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == Integer.parseInt(candidate.getId()) && msg.obj.toString().equals(END_CALLED)){
+            if (msg.what == Integer.parseInt(candidate.getId()) && msg.obj.toString().equals(END_CALLED)) {
                 changeElementsBackgroundWhenEndCall();
             } else {
                 changeElementsBackground();
@@ -194,6 +211,22 @@ public class CandidateWaitCallActivity extends BaseActivity {
         }
 
     };
+
+    public void callBack() {
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (!sginalVisiable) {
+                    sginalVisiable = true;
+                    myHandler.sendEmptyMessage(0);
+                } else {
+                    sginalVisiable = false;
+                    myHandler.sendEmptyMessage(1);
+                }
+            }
+        }, 1000);
+
+    }
 
     @Override
     public void gotoActivity(Context context, Class<?> cls, JSONObject jsonObject) throws JSONException {
